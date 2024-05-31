@@ -4,6 +4,12 @@ A limited Vulkan executor for Shadertoys built using [merian](https://github.com
 
 Shaders are automatically hotreloaded. Compilation errors are printed to the GUI below "shadertoy".
 
+## Requirements
+
+- A fairly recent C++ compiler
+- A GPU with Vulkan support
+- shaderc
+
 ## Usage
 
 

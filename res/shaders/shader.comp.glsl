@@ -1,5 +1,5 @@
 /* 
- * Shader was made by following the tutorial here:
+ * Shader was made by following kishimisu's tutorial here:
  *
  * Video URL: https://youtu.be/f4s1h2YETNY
  */

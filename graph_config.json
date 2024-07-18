@@ -1,0 +1,35 @@
+{
+    "connections": [
+        {
+            "dst": "output",
+            "dst_input": "src",
+            "src": "Shadertoy 0",
+            "src_output": "out"
+        }
+    ],
+    "nodes": {
+        "Shadertoy 0": {
+            "disable": false,
+            "properties": {
+                "height": 1080,
+                "shader path": "res/shaders/shader.comp.glsl",
+                "width": 1920
+            },
+            "type": "Shadertoy"
+        },
+        "output": {
+            "disable": false,
+            "properties": {
+                "blit mode": "FIT",
+                "mode": "windowed",
+                "rebuild on recreate": false,
+                "vsync": false
+            },
+            "type": "Window (GLFW)"
+        }
+    },
+    "profiler": {
+        "profiling": true,
+        "report intervall": 50
+    }
+}

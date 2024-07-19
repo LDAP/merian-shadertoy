@@ -26,7 +26,12 @@ int main() {
     // Setup processing graph.
     merian_nodes::Graph graph{context, alloc};
 
-    auto load = merian::JSONLoadProperties(std::filesystem::path("graph_config.json"));
+    auto config_file = context->loader.find_file("graph_config.json");
+    if (!config_file) {
+        throw std::runtime_error{"graph_config.json not found"};
+    }
+    SPDLOG_INFO("Using config file: {}", config_file->string());
+    auto load = merian::JSONLoadProperties(*config_file);
     graph.properties(load);
 
     std::shared_ptr<merian_nodes::GLFWWindow> window =
@@ -61,7 +66,7 @@ int main() {
         graph.run();
     }
 
-    auto dump = merian::JSONDumpProperties("graph_config.json");
+    auto dump = merian::JSONDumpProperties(*config_file);
     graph.properties(dump);
 
     return 0;

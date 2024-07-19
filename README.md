@@ -26,7 +26,7 @@ meson setup build --buildtype=debugoptimized
 meson compile -C build
 
 # Run
-# An example shader is provided in res/shaders/shader.comp.glsl
-./build/merian-shadertoy <path/to/shader>
-
+# enable dev env if you do not want to install
+meson devenv -C build
+./merian-shadertoy
 ```

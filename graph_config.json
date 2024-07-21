@@ -13,6 +13,7 @@
             "properties": {
                 "height": 1080,
                 "shader path": "res/shaders/shader.comp.glsl",
+                "shader source": "file",
                 "width": 1920
             },
             "type": "Shadertoy"

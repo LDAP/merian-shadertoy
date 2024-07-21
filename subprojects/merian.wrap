@@ -2,7 +2,7 @@
 directory = merian
 
 url = https://github.com/LDAP/merian
-revision = 9a617c6d36410008c1332a9be7a0ae60e14ae925
+revision = 8cc67c1a8f87da787342de8f49ebf0ea10f4db84
 depth = 1
 clone-recursive = true
 

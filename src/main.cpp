@@ -26,7 +26,7 @@ int main() {
     // Setup processing graph.
     merian_nodes::Graph graph{context, alloc};
 
-    auto config_file = context->loader.find_file("graph_config.json");
+    auto config_file = context->file_loader.find_file("graph_config.json");
     if (!config_file) {
         throw std::runtime_error{"graph_config.json not found"};
     }

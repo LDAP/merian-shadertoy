@@ -16,6 +16,7 @@ Shaders are automatically hotreloaded. Compilation errors are printed to the GUI
 ```bash
 # Clone this repo including submodules
 git clone --recursive <url>
+cd merian-shadertoy
 
 # Setup the build directory
 meson setup build
@@ -28,5 +29,5 @@ meson compile -C build
 # Run
 # enable dev env if you do not want to install
 meson devenv -C build
-./merian-shadertoy
+./build/merian-shadertoy
 ```

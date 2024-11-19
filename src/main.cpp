@@ -4,9 +4,9 @@
 #include "merian/utils/properties_json_dump.hpp"
 #include "merian/utils/properties_json_load.hpp"
 #include "merian/vk/context.hpp"
+#include "merian/vk/extension/extension_glfw.hpp"
 #include "merian/vk/extension/extension_resources.hpp"
 #include "merian/vk/extension/extension_vk_debug_utils.hpp"
-#include "merian/vk/extension/extension_vk_glfw.hpp"
 #include "merian/vk/window/glfw_imgui.hpp"
 
 int main() {
@@ -14,10 +14,11 @@ int main() {
 
     // Setup Vulkan context.
     const auto debug_utils = std::make_shared<merian::ExtensionVkDebugUtils>(false);
-    const auto extGLFW = std::make_shared<merian::ExtensionVkGLFW>();
+    const auto extGLFW = std::make_shared<merian::ExtensionGLFW>();
     const auto resources = std::make_shared<merian::ExtensionResources>();
+    const auto core = std::make_shared<merian::ExtensionVkCore>();
     const std::vector<std::shared_ptr<merian::Extension>> extensions = {extGLFW, resources,
-                                                                        debug_utils};
+                                                                        debug_utils, core};
     const merian::ContextHandle context = merian::Context::create(extensions, "merian-shadertoy");
 
     merian::ResourceAllocatorHandle alloc = resources->resource_allocator();

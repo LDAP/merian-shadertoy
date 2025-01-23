@@ -44,22 +44,22 @@ int main() {
     merian::ImGuiProperties config;
     merian::Stopwatch frametime;
     if (window)
-        window->set_on_blit_completed(
-            [&](const vk::CommandBuffer& cmd, merian::SwapchainAcquireResult& acquire_result) {
-                imgui.new_frame(queue, cmd, *window->get_window(), acquire_result);
+        window->set_on_blit_completed([&](const merian::CommandBufferHandle& cmd,
+                                          const merian::SwapchainAcquireResult& acquire_result) {
+            imgui.new_frame(queue, cmd, *window->get_window(), acquire_result);
 
-                const double frametime_ms = frametime.millis();
-                frametime.reset();
-                ImGui::Begin(fmt::format("Shadertoy ({:.02f}ms, {:.02f} fps)###ShadertoyWindow",
-                                         frametime_ms, 1000 / frametime_ms)
-                                 .c_str(),
-                             NULL, ImGuiWindowFlags_NoFocusOnAppearing);
+            const double frametime_ms = frametime.millis();
+            frametime.reset();
+            ImGui::Begin(fmt::format("Shadertoy ({:.02f}ms, {:.02f} fps)###ShadertoyWindow",
+                                     frametime_ms, 1000 / frametime_ms)
+                             .c_str(),
+                         NULL, ImGuiWindowFlags_NoFocusOnAppearing);
 
-                graph.properties(config);
+            graph.properties(config);
 
-                ImGui::End();
-                imgui.render(cmd);
-            });
+            ImGui::End();
+            imgui.render(cmd);
+        });
 
     // Run the graph
     while (window && !window->get_window()->should_close()) {

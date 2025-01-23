@@ -7,6 +7,11 @@
             "src_output": "out"
         }
     ],
+    "graph_properties": {
+        "fps limiter": false,
+        "low latency": false,
+        "time overwrite": "None"
+    },
     "nodes": {
         "Shadertoy 0": {
             "disable": false,
@@ -28,9 +33,5 @@
             },
             "type": "Window (GLFW)"
         }
-    },
-    "profiler": {
-        "profiling": true,
-        "report intervall": 50
     }
 }
